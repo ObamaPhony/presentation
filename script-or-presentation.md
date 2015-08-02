@@ -42,17 +42,15 @@ simple interface, and an HTTP API which Node uses internally. We also automate
 the separate processes of collecting and initially processing speeches. Those
 programs are called at the start of the Node server's lifetime.
 
-When the program is started
-
-
 
 Program flow
 ------------
 
   1. **Node.js server** starts up
-  2. **Node** looks for a *speech cache*
+  2. **Node** looks for a *speech cache* (a file containing scraped & formatted
+     speeches for one speaker)
        * If not present, **Node** calls the **scraping program** and saves the
-         speeches into the *speech cache*
+         output to the *speech cache*
   3. **VB scraping program**, passes it to the **API**
   4. **API** sends speeches to the **analysis program**
   5. **API** stores returned analysed speeches
